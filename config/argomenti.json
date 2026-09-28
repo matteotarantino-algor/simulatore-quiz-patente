@@ -1,0 +1,38 @@
+{
+  "_note": "Mappa i 25 argomenti del listato. 'nome_pdf' deve coincidere esattamente con il testo dell'intestazione nel PDF. 'nome' è il testo mostrato (troncamenti del PDF segnalati con '…'). 'quota' = domande per scheda d'esame: NON esiste una ripartizione ufficiale pubblicata; regola scelta: 1 per argomento + 1 extra ai 5 argomenti con più affermazioni nel listato. Somma = 30.",
+  "argomenti": [
+    { "id": 1, "breve": "Definizioni e doveri", "quota": 2, "nome_pdf": "Definizioni stradali e di traffico; definizioni e classificazione dei veicoli; doveri del conducente nell'uso della strada -" },
+    { "id": 2, "breve": "Segnali di pericolo", "quota": 2, "nome_pdf": "Segnali di pericolo" },
+    { "id": 3, "breve": "Segnali di divieto", "quota": 2, "nome_pdf": "Segnali di divieto" },
+    { "id": 4, "breve": "Segnali di obbligo", "quota": 2, "nome_pdf": "Segnali di obbligo" },
+    { "id": 5, "breve": "Segnali di precedenza", "quota": 1, "nome_pdf": "Segnali di precedenza" },
+    { "id": 6, "breve": "Segnaletica orizzontale", "quota": 1, "nome_pdf": "Segnaletica orizzontale; segni sugli ostacoli" },
+    { "id": 7, "breve": "Semafori e agenti", "quota": 1, "nome_pdf": "Segnalazioni semaforiche; segnalazioni degli agenti del traffico" },
+    { "id": 8, "breve": "Segnali di indicazione", "quota": 2, "nome_pdf": "Segnali di indicazione" },
+    { "id": 9, "breve": "Segnali complementari e cantiere", "quota": 1, "nome_pdf": "Segnali complementari; segnali temporanei e di cantiere" },
+    { "id": 10, "breve": "Pannelli integrativi", "quota": 1, "nome_pdf": "Pannelli integrativi dei segnali" },
+    { "id": 11, "breve": "Limiti di velocità", "quota": 1, "nome_pdf": "Limiti di velocità; pericolo e intralcio alla circolazione; comportamenti ai passaggi a livello" },
+    { "id": 12, "breve": "Distanza di sicurezza", "quota": 1, "nome_pdf": "Distanza di sicurezza" },
+    { "id": 13, "breve": "Norme di circolazione", "quota": 1, "nome_pdf": "Norme sulla circol. dei veicoli; pos. dei veicoli sulla carreggiata; cambio di direz. di corsia (svolta); comp. in presenza di" },
+    { "id": 14, "breve": "Esempi di precedenza", "quota": 1, "nome_pdf": "Esempi di precedenza (ordine di precedenza agli incroci)" },
+    { "id": 15, "breve": "Sorpasso", "quota": 1, "nome_pdf": "Norme sul sorpasso" },
+    { "id": 16, "breve": "Fermata e sosta", "quota": 1, "nome_pdf": "Fermata, sosta, arresto e partenza" },
+    { "id": 17, "breve": "Ingombro e autostrade", "quota": 1, "nome_pdf": "Ingombro della carreggiata; segnalazione di veicolo fermo; norme sulla circolazione in autostrada e strade extraurbane" },
+    { "id": 18, "breve": "Luci e dispositivi acustici", "quota": 1, "nome_pdf": "Uso delle luci; uso dei dispositivi acustici; spie e simboli" },
+    { "id": 19, "breve": "Dispositivi di equipaggiamento", "quota": 1, "nome_pdf": "Dispositivi di equipaggiamento: funzione ed uso; cinture di sicurezza e sistemi di ritenuta per bambini; casco protettivo;" },
+    { "id": 20, "breve": "Patenti e sanzioni", "quota": 1, "nome_pdf": "Patenti di guida; documenti di circolazione del veicolo; obbligo verso funzionari ed agenti; sistema sanzionatorio; patente a" },
+    { "id": 21, "breve": "Incidenti stradali", "quota": 1, "nome_pdf": "Comportamenti per prevenire  incidenti stradali; comportamento in caso di incidente stradale; peculiarità della guida di" },
+    { "id": 22, "breve": "Condizioni fisiche e primo soccorso", "quota": 1, "nome_pdf": "Guida in relazione alle qualità e condizioni fisiche e psichiche; alcool, droga e farmaci ; primo soccorso" },
+    { "id": 23, "breve": "Responsabilità e assicurazione", "quota": 1, "nome_pdf": "Responsabilità civile, penale, amministrativa; assicurazione R.C.A.; altre forme assicurative legate al veicolo" },
+    { "id": 24, "breve": "Consumi e ambiente", "quota": 1, "nome_pdf": "Limitazione dei consumi; rispetto dell¿ambiente; inquinamento: atmosferico, acustico, da cattivo smaltimento dei rifiuti" },
+    { "id": 25, "breve": "Veicolo e manutenzione", "quota": 1, "nome_pdf": "Elementi costitutivi del veicolo importanti per la sicurezza; manutenzione ed uso; stabilità e tenuta di strada del veicolo;" }
+  ],
+  "troncati": [
+    "Definizioni stradali e di traffico; definizioni e classificazione dei veicoli; doveri del conducente nell'uso della strada -",
+    "Norme sulla circol. dei veicoli; pos. dei veicoli sulla carreggiata; cambio di direz. di corsia (svolta); comp. in presenza di",
+    "Dispositivi di equipaggiamento: funzione ed uso; cinture di sicurezza e sistemi di ritenuta per bambini; casco protettivo;",
+    "Patenti di guida; documenti di circolazione del veicolo; obbligo verso funzionari ed agenti; sistema sanzionatorio; patente a",
+    "Comportamenti per prevenire  incidenti stradali; comportamento in caso di incidente stradale; peculiarità della guida di",
+    "Elementi costitutivi del veicolo importanti per la sicurezza; manutenzione ed uso; stabilità e tenuta di strada del veicolo;"
+  ]
+}

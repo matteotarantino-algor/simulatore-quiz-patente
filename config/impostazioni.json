@@ -1,0 +1,42 @@
+{
+  "esame": {
+    "domande": 30,
+    "durata_minuti": 20,
+    "errori_max": 3
+  },
+  "selezione": {
+    "peso_errata": 10,
+    "peso_per_errore": 2,
+    "errori_max_conteggiati": 5,
+    "giorni_errore_recente": 7,
+    "bonus_errore_recente": 6,
+    "peso_indovinata_una_volta": 4,
+    "giorni_vista_tempo_fa": 14,
+    "peso_vista_tempo_fa": 4,
+    "peso_in_consolidamento": 3,
+    "peso_normale": 2,
+    "serie_consolidata": 3,
+    "peso_consolidata": 0.4,
+    "componente_casuale": 0.15
+  },
+  "ripasso": {
+    "serie_richiesta": 3,
+    "domande_per_sessione": 20
+  },
+  "preparazione": {
+    "decadimento_storia": 0.7,
+    "storia_max": 10,
+    "forza_prior_domanda": 2,
+    "prior_non_viste": 0.6,
+    "forza_prior": 10,
+    "simulazioni": 5000,
+    "serie_padronanza": 2
+  },
+  "verdetto": {
+    "pronto_probabilita": 0.9,
+    "pronto_copertura": 0.9,
+    "pronto_ultimi_realistici": 5,
+    "pronto_errori_max_realistici": 1,
+    "quasi_probabilita": 0.7
+  }
+}
