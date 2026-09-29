@@ -2,6 +2,8 @@
   import { app, cfg, isEsame } from '../lib/app.svelte'
   import { formattaTempo, tempoRimanente } from '../lib/exam'
   import Figura from './Figura.svelte'
+  import InfoBtn from './InfoBtn.svelte'
+  import Spiegazione from './Spiegazione.svelte'
 
   const s = $derived(app.sessione!)
   const esame = $derived(isEsame(s.tipo))
@@ -15,6 +17,7 @@
 
   let now = $state(Date.now())
   let conferma = $state<'consegna' | 'abbandona' | null>(null)
+  let spiegazioneAperta = $state(false)
 
   $effect(() => {
     if (!s.timer) return
@@ -28,7 +31,7 @@
   const rimanente = $derived(s.timer ? tempoRimanente(s.timer, now) : 0)
 
   function tasto(e: KeyboardEvent) {
-    if (conferma || (e.target as HTMLElement).closest('input,select,textarea,dialog')) return
+    if (conferma || spiegazioneAperta || (e.target as HTMLElement).closest('input,select,textarea,dialog')) return
     if (e.key === 'v' || e.key === 'V') app.rispondi(true)
     else if (e.key === 'f' || e.key === 'F') app.rispondi(false)
     else if (e.key === 'ArrowRight') app.vaiA(s.indice + 1)
@@ -94,13 +97,16 @@
     </div>
 
     {#if !esame && risposta !== null}
-      <p class="esito" class:ok={risposta === d.risposta} class:ko={risposta !== d.risposta} role="status">
-        {#if risposta === d.risposta}
-          ✓ Giusto
-        {:else}
-          ✗ Sbagliato — la risposta corretta è <strong>{d.risposta ? 'VERO' : 'FALSO'}</strong>
-        {/if}
-      </p>
+      <div class="esito" class:ok={risposta === d.risposta} class:ko={risposta !== d.risposta}>
+        <p role="status">
+          {#if risposta === d.risposta}
+            ✓ Giusto
+          {:else}
+            ✗ Sbagliato — la risposta corretta è <strong>{d.risposta ? 'VERO' : 'FALSO'}</strong>
+          {/if}
+        </p>
+        <InfoBtn label="Perché?" onclick={() => (spiegazioneAperta = true)} />
+      </div>
     {/if}
   </article>
 
@@ -178,6 +184,9 @@
         {/if}
       </div>
     </div>
+  {/if}
+  {#if spiegazioneAperta}
+    <Spiegazione id={d.id} rispostaData={risposta} onclose={() => (spiegazioneAperta = false)} />
   {/if}
   <p class="tiny muted">Scorciatoie da tastiera: V = Vero, F = Falso, ← → per spostarsi. Limite errori: {cfg.esame.errori_max}.</p>
 </div>
@@ -292,9 +301,16 @@
   }
   .esito {
     margin: 12px 0 0;
-    padding: 10px 12px;
+    padding: 6px 6px 6px 12px;
     border-radius: 10px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .esito p {
+    margin: 0;
   }
   .esito.ok {
     background: var(--good-bg);

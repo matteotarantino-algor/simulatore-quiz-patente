@@ -19,6 +19,12 @@ Versione dati attuale: file `210926_Conseguimento A-B italiano.pdf` (listato del
 - **Esame realistico**: stessa scheda ma estrazione puramente casuale, senza priorità sugli errori.
 - **Per argomento**: uno o più dei 25 argomenti, sessioni da 10/20/30, correzione immediata.
 - **Ripasso errori**: le domande sbagliate tornano finché non vengono indovinate 3 volte di fila.
+- **Cosa dice il listato (ⓘ)**: accanto a ogni errore (fine quiz e correzione immediata) un pop-up mostra le altre
+  affermazioni ufficiali sullo stesso segnale/tema: le VERE sempre visibili, le FALSE in una sezione richiudibile.
+  Nessun testo aggiunto: sono affermazioni del PDF, parola per parola. Copertura: 6.864 affermazioni con affermazioni
+  vere dello stesso quesito sulla stessa figura, 42 con la stessa figura in altri quesiti (98,4% in totale), 94 solo con
+  affermazioni dello stesso quesito ma su altre figure (segnalato nel pop-up), 20 senza altre affermazioni vere
+  collegate (vale la sola risposta ufficiale). Logica in `src/lib/spiegazione.ts`.
 - **Consultazione del listato**: ricerca testuale (anche per numero domanda/quesito), filtro per argomento e figura.
 - **Preparazione**: copertura, padronanza, probabilità stimata di superamento (Monte Carlo), andamento, esami
   realistici, argomenti deboli con allenamento mirato, verdetto sintetico.

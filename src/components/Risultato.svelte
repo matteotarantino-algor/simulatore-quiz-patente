@@ -2,11 +2,14 @@
   import { app, cfg, isEsame } from '../lib/app.svelte'
   import { formattaTempo } from '../lib/exam'
   import Figura from './Figura.svelte'
+  import InfoBtn from './InfoBtn.svelte'
+  import Spiegazione from './Spiegazione.svelte'
 
   const r = $derived(app.risultato!)
   const esame = $derived(isEsame(r.tipo))
   const date = $derived(r.risposte.filter((x) => x !== null).length)
   let tutte = $state(false)
+  let aperta = $state<number | null>(null)
   const indici = $derived(tutte ? r.ids.map((_, i) => i) : r.correzione.sbagliate)
 
   const vf = (x: boolean | null) => (x === null ? 'nessuna' : x ? 'VERO' : 'FALSO')
@@ -65,7 +68,10 @@
       <article class="card voce">
         {#if d.figura}<Figura src={d.figura} size="md" />{/if}
         <div class="stack">
-          <p class="tiny muted">{i + 1}. · {d.argomento_nome.length > 60 ? app.listato!.argomenti.find((a) => a.id === d.argomento_id)?.breve : d.argomento_nome} · n. {d.id}</p>
+          <div class="meta">
+            <p class="tiny muted">{i + 1}. · {d.argomento_nome.length > 60 ? app.listato!.argomenti.find((a) => a.id === d.argomento_id)?.breve : d.argomento_nome} · n. {d.id}</p>
+            <InfoBtn onclick={() => (aperta = i)} />
+          </div>
           <p class="testo">{d.testo}</p>
           <div class="row small">
             <span class="badge" class:good={giusta} class:bad={!giusta}>{giusta ? '✓' : '✗'} Tua risposta: {vf(data)}</span>
@@ -76,6 +82,10 @@
     {/each}
   </section>
 </div>
+
+{#if aperta !== null}
+  <Spiegazione id={r.ids[aperta]} rispostaData={r.risposte[aperta]} onclose={() => (aperta = null)} />
+{/if}
 
 <style>
   .esito {
@@ -107,6 +117,16 @@
   }
   .voce p {
     margin: 0;
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin: -6px -6px 0 0;
+  }
+  .meta p {
+    padding-top: 6px;
   }
   .testo {
     font-size: 1.02rem;

@@ -1,25 +1,21 @@
 <script lang="ts">
   import { figuraUrl } from '../lib/app.svelte'
 
-  let { src, size = 'md' }: { src: string; size?: 'sm' | 'md' | 'lg' } = $props()
-  let aperta = $state(false)
+  let { src, size = 'md' }: { src: string; size?: 'sm' | 'thumb' | 'md' | 'lg' } = $props()
   let dialog: HTMLDialogElement | undefined = $state()
 
-  $effect(() => {
-    if (!dialog) return
-    if (aperta && !dialog.open) dialog.showModal()
-    if (!aperta && dialog.open) dialog.close()
-  })
+  const apri = () => dialog && !dialog.open && dialog.showModal()
+  const chiudi = () => dialog?.open && dialog.close()
 </script>
 
-<button class="fig {size}" type="button" onclick={() => (aperta = true)} aria-label="Ingrandisci la figura">
+<button class="fig {size}" type="button" onclick={apri} aria-label="Ingrandisci la figura">
   <img src={figuraUrl(src)} alt="Figura della domanda" loading="lazy" decoding="async" />
   <span class="zoom" aria-hidden="true">
     <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M10 2a8 8 0 0 1 6.32 12.9l5.39 5.4-1.42 1.4-5.39-5.38A8 8 0 1 1 10 2Zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm1 2v3h3v2h-3v3H9v-3H6V9h3V6h2Z"/></svg>
   </span>
 </button>
 
-<dialog bind:this={dialog} onclose={() => (aperta = false)} onclick={() => (aperta = false)}>
+<dialog bind:this={dialog} onclick={chiudi}>
   <img src={figuraUrl(src)} alt="Figura della domanda, ingrandita" />
   <p>Tocca per chiudere</p>
 </dialog>
@@ -41,6 +37,9 @@
   }
   .sm {
     width: 64px;
+  }
+  .thumb {
+    width: 96px;
   }
   .md {
     width: min(200px, 42vw);
